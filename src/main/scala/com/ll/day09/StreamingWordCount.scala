@@ -9,7 +9,8 @@ object StreamingWordCount {
   def main(args: Array[String]): Unit = {
 
     //离线任务是创建SparkContext,现在要实现实时计算，用StreamingContext
-    var conf = new SparkConf().setAppName("StreamingWordCount")
+    val conf = new SparkConf().setAppName("StreamingWordCount")
+//    val conf = new SparkConf().setAppName("StreamingWordCount").setMaster("local[2]").set("spark.driver.memory","471859200")
     val sc = new SparkContext(conf)
 
     //Streaming 是对SparkContext的包装，包装了一层之后就增加了实时的功能
